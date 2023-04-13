@@ -1,8 +1,9 @@
 
+
 /*
 *
 * @file  List01_COLTEC2023_IntProg
-* @brief  Arquivo C com implementaÁ„o de exercicios
+* @brief  Arquivo C com implementa√ß√£o de exercicios
 * @author Matheus Gregory Fernandes da Silva
 * @date  05/04/2023
 *
@@ -18,7 +19,7 @@
 void Quest01(void) {
     float numerador;
     float denominador;
-    float res;
+    float resultado;
 
     printf("\n\nQuestao 1\n\n");
 
@@ -28,19 +29,18 @@ void Quest01(void) {
     printf("\nDigite um valor diferente de zero para o denominador\n");
     scanf("%f", &denominador);
 
-    //Realizar verificaÁ„o se denominador È diferente de zero imprimir resultado
+    //Realizar verifica√ß√£o se denominador √© diferente de zero imprimir resultado
     if (denominador == 0) {
-        printf("\nDigite um valor diferente de zero para o denominador");
+        printf("\n###Error###\nImpossivel realizar conta com denominador igual a ZERO");
     }
     else {
-        res = numerador / denominador;
-        res = numerador / denominador;
-        printf("\nO resultado de %f dividido por %f eh:%.2f", numerador, denominador, res);
+        resultado = numerador / denominador;
+        printf("\nO resultado de %f dividido por %f eh:%.2f", numerador, denominador, resultado);
     }
 
 }
 
-// Realizar soma e impress„o de resultado
+// Realizar soma e impress√£o de resultado
 void Quest02(void) {
     int num01;
     int num02;
@@ -53,7 +53,7 @@ void Quest02(void) {
     printf("\n\nQuestao 2\n\n");
     
     printf("\nDigite cinco valores:");
-    scanf("%d\n%d\n%d\n%d\n%d\n", &num01, &num02, &num03, &num04, &num05);
+    scanf("%d%d%d%d%d", &num01, &num02, &num03, &num04, &num05);
 
     soma[0] = num01 + num02;
     soma[1] = num01 + num03;
@@ -71,7 +71,7 @@ void Quest02(void) {
     }
 }
 
-// Calculo de MÈdia aritimÈtica
+// Calculo de M√©dia aritim√©tica
 void Quest03(void) {
     float num_argumentos;
     float media; 
@@ -82,11 +82,11 @@ void Quest03(void) {
 
     printf("\nDigite 6 valores:\n");
 
-    //LaÁo para ler valores e atribuir a vetor
+    //La√ßo para ler valores e atribuir a vetor
     for (int i = 0; i < num_argumentos; i++) {
         scanf("%f", &soma[i]);
     }
-   //Calculo da mÈdia
+   //Calculo da m√©dia
     media = (soma[1] + soma[2] + soma[3] + soma[4] + soma[5] + soma[0]) / num_argumentos;
     printf("o valor da media eh: '%.2f'\n",media);
  }
@@ -97,7 +97,7 @@ void Quest04(void) {
 
     printf("\n\nQuestao 4\n\n");
     //problema H = 1/1 + 1/2 + 1/3 + 1/4 + 1/5
-    //alteraÁ„o de um dos valores da fraÁ„o para¥possivel resoluÁ„o
+    //altera√ß√£o de um dos valores da fra√ß√£o para¬¥possivel resolu√ß√£o
     h = (1.0/1)+(1.0/2)+(1.0/3)+(1.0/4)+(1.0/5);
     printf("O valor de H eh:'%.2f'\n", h);
 }
@@ -116,12 +116,12 @@ void Quest05(void) {
     printf("\nDigite seu salario antigo: \n");
     scanf("%f", &salario_antigo);
 
-    //calculo da alteraÁ„o percentual
+    //calculo da altera√ß√£o percentual
     porc_aumento = (((salario_atual / salario_antigo) - 1)*100);
     printf("\nO aumento percentual foi de %.2f%%: \n",porc_aumento);
 
 }
-// Calculo de fraÁıes com 3 casas decimais
+// Calculo de fra√ß√µes com 3 casas decimais
 void Quest06(void) {
     float numerador;
     float denominador;
@@ -134,13 +134,19 @@ void Quest06(void) {
     printf("\nDigite o valor do denominador: \n");
     scanf("%f", &denominador);
 
-    resultado = numerador / denominador;
-    printf("\nO resultado eh:'%.3f'\n", resultado);
+    //Realizar verifica√ß√£o se denominador √© diferente de zero imprimir resultado
+    if (denominador == 0) {
+        printf("\n###  Error  ###\nImpossivel realizar conta com denominador igual a ZERO");
+    }
+    else {
+        resultado = numerador / denominador;
+        printf("\nO resultado de %f dividido por %f eh:%.3f", numerador, denominador, resultado);
+    }
 
 }
 
 
-// ApresentaÁ„o de notas de alunos tabuladas
+// Apresenta√ß√£o de notas de alunos tabuladas
 void Quest07(void) {
     float aluno01[3];
     float aluno02[3];
@@ -163,7 +169,7 @@ void Quest07(void) {
     
 }
 
-// leitura e impress„o de dados 
+// leitura e impress√£o de dados 
 // #Tratamento de erros de leitura char
 void Quest08(void) {
     int idade;
@@ -195,9 +201,9 @@ int main(int argc, char** argv) {
     bool executar;
     char opcao;
 
-    // verificar numero da quest„o desejado e chamar funÁ„o correspondente
+    // verificar numero da quest√£o desejado e chamar fun√ß√£o correspondente
     do{
-        printf("\nDigite o numero da quest„o que deseja executar [1:8]: ");
+        printf("\nDigite o numero da questao que deseja executar [1:8]: ");
         scanf("%d", &indicador);
         switch (indicador) {
             case 1: {
@@ -233,7 +239,7 @@ int main(int argc, char** argv) {
                 break;
             }
             default: {
-                printf("\n\n###ERRO###\n\nQuestao n„o encontrada!!!\n\n");
+                printf("\n\n###  ERRO  ###\n\nQuestao n√£o encontrada!!!\n\n");
             }
     }
         printf("\nDeseja executar mais alguma questao? [S ou N]: ");
