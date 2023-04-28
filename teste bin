@@ -1,0 +1,80 @@
+/*
+*
+* @file  List01_COLTEC2023_IntProg
+* @brief  Arquivo C com implementação de exercicios
+* @author Matheus Gregory Fernandes da Silva
+* @date  05/04/2023
+*
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include <stdbool.h>
+#define SUCESSO  0
+#define BaseBinaria 2
+#define BaseHexaDec 16
+#define bitsInteiro 32
+
+void mudanca_BaseHexadecimal_Decimal(void){
+    
+    printf("\n### Imprimir em bases Diferentes ###");
+
+    int numero_01;
+    
+    printf("\nDigite os valor desejados: ");
+    scanf("%x", &numero_01);
+    printf("\nO numero '%x' da base Hexadecimal na base decimal eh '%d' ",numero_01, numero_01);
+}
+
+void mudanca_BaseDecimal_Binario(void){
+    int numeroDec;
+    int numeroBin[bitsInteiro];
+    int numBit = bitsInteiro;
+
+    for(int i =0; i < bitsInteiro; i++){
+        numeroBin[i]=0;
+        printf("%d.", *numeroBin);
+    }
+    
+    printf("\n\n");
+
+    printf("\nDigite o valor a ser convertido: ");
+    scanf("%d", &numeroDec);
+    
+     printf("\n\n");
+
+    for(int i = bitsInteiro; numeroDec > 0; i--){
+        numeroBin[i] = (numeroDec % BaseBinaria);
+        numeroDec = numeroDec / BaseBinaria;
+        printf("%d",numeroBin[i]);
+    }
+
+}
+
+int main(int argc,char ** argv) {
+    int indicador;
+    char opcao;
+    bool executar;
+    
+    do{
+        printf("\nDigite o numero da questao que deseja executar [1:10]: ");
+        scanf("%d", &indicador);
+        switch (indicador) {
+            case 1: 
+                mudanca_BaseHexadecimal_Decimal();
+                break;
+            case 2: 
+                mudanca_BaseDecimal_Binario();
+                break;
+            default: 
+                printf("\n\n###  ERRO  ###\n\nQuestao não encontrada!!!\n\n");
+            
+    }
+        printf("\nDeseja executar mais alguma questao? [S ou N]: ");
+        scanf(" %c", &opcao);
+        executar=(opcao == 'S' || opcao == 's');
+
+    } while (executar);
+    return SUCESSO;
+}
